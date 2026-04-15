@@ -1,0 +1,192 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg-top: #c97fd4;
+  --color-bg-mid: #7b9fd4;
+  --color-bg-bot: #5ba8d4;
+  --color-white: #fff;
+  --color-dark: #333;
+  --color-muted: #999;
+  --font-family-base: 'Segoe UI', sans-serif;
+}
+
+body {
+  font-family: var(--font-family-base);
+  background: linear-gradient(160deg, var(--color-bg-top) 0%, var(--color-bg-mid) 50%, var(--color-bg-bot) 100%);
+  min-height: 100vh;
+  color: var(--color-white);
+  padding: 2.5rem 2rem;
+}
+
+/* titel */
+h1 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+#top-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4rem;
+  margin-bottom: 2rem;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#current-weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 200px;
+}
+
+#current-icon {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 0.25rem;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  padding: 6px;
+}
+
+#current-desc {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+#current-temp,
+#current-feels,
+#current-precip {
+  font-size: 0.9rem;
+  margin: 0.1rem 0;
+}
+
+#search-container {
+  display: flex;
+  align-items: center;
+  margin-top: 1.2rem;
+  border: 2px solid var(--color-white);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+}
+
+#cityInput {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: none;
+  color: var(--color-white);
+  font-size: 1.1rem;
+  font-weight: bold;
+  outline: none;
+  width: 150px;
+}
+
+#cityInput::placeholder {
+  color: var(--color-white);
+  font-weight: bold;
+}
+
+#searchBtn {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: none;
+  color: var(--color-white);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#hourly-weather {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 280px;
+}
+
+.hourly-row {
+  display: grid;
+  grid-template-columns: 70px 70px 70px 36px;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  padding: 0.1rem 0;
+}
+
+.hourly-row img {
+  width: 28px;
+  height: 28px;
+}
+
+#weekly-card {
+  background: var(--color-white);
+  border-radius: 16px;
+  padding: 1.5rem 2rem 1rem;
+  max-width: 860px;
+  margin: 0 auto;
+  color: var(--color-dark);
+}
+
+#daily-weather {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.day-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  text-align: center;
+}
+
+.day-name {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--color-dark);
+}
+
+.day-card img {
+  display: none;
+}
+
+.day-max {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #222;
+}
+
+.day-min {
+  font-size: 1rem;
+  color: #666;
+}
+
+#weekly-card hr {
+  border: none;
+  border-top: 2px solid #4a90d4;
+  margin: 1rem 0 1rem;
+}
+
+#weekChart {
+  width: 100% !important;
+  max-height: 340px;
+}
+
+#footer-text {
+  font-size: 1rem;
+  color: var(--color-muted);
+  margin-top: 1rem;
+  text-align: left;
+}

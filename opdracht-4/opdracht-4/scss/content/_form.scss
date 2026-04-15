@@ -1,0 +1,96 @@
+@use '../config/color';
+@use '../config/vendor';
+
+@use '../util/mixin/transform';
+
+form,
+label {
+  display: flex;
+  width: 100%;
+  margin: .5rem 0;
+  font-size: .8rem;
+  flex-direction: column;
+  align-items: stretch;
+
+  input,
+  textarea {
+    padding: .5rem 1rem;
+    margin-top: .3rem;
+    font-size: 1.1rem;
+    border: 1px solid color.theme('light', 'bor');
+    border-radius: .2rem;
+  }
+
+  textarea {
+    resize: vertical;
+    overflow: auto;
+    &.h-single { height: 2.4rem * 1; }
+    &.h-double { height: 2.4rem * 2; }
+    &.h-tripple { height: 2.4rem * 3; }
+    &.h-quadrupple { height: 2.4rem * 4; }
+  }
+
+  input[type="submit"] {
+    width: auto;
+    align-self: flex-end;
+  }
+
+  .radio-group,
+  .checkbox-group {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      flex-direction: row;
+      align-items: center;
+
+      input[type="radio"],
+      input[type="checkbox"] {
+        @include vendor.prefix( appearance, none);
+        position: relative;
+        border: none;
+        width: 1.5rem;
+        height: 1rem;
+
+        &:before,
+        &:after {
+          @include transform.translate( 50%, 50% );
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+        }
+
+        &:before {
+          width: 1rem;
+          height: 1rem;
+          background-color: color.white(5);
+          border: 2px solid #333;
+        }
+
+        &:after {
+          width: .8rem;
+          height: .8rem;
+          background-color: color.get(3);
+          opacity: 0;
+        }
+
+        &:checked:after { opacity: 1 }
+      }
+
+      input[type="radio"] {
+        margin-top: -.1rem;
+
+        &:before,
+        &:after { border-radius: 50% }
+      }
+
+      input[type="checkbox"] {
+        margin-top: 0;
+
+        &:before,
+        &:after { border-radius: .1rem }
+      }
+    }
+  }
+}

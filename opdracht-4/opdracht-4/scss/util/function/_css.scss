@@ -1,0 +1,4 @@
+@use 'list';
+
+@function classname( $args ) { @return list.implode($args, '-'); }
+@function property( $args ) { @return list.implode($args, '-'); }

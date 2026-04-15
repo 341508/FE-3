@@ -1,0 +1,33 @@
+@use '../config/color';
+
+table {
+  margin: 2rem 0;
+  border-collapse: collapse;
+  overflow: hidden;
+
+  caption {
+    padding: .5rem;
+    background-color: color.black(.5);
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  thead th, tfoot th { color: color.theme('dark', 'txt'); }
+  thead th { background-color: color.theme('dark', 'bg'); }
+  tfoot th {
+    background-color: lighten(color.theme('dark', 'bg'), 40%);
+    font-size: .8rem;
+    font-weight: normal;
+  }
+  tr {
+    td,th {
+      padding: .2rem .5rem;
+
+      &:not(:first-of-type):not(:last-of-type) {
+        border: solid color.theme('dark', 'bor');
+        border-width: 0 1px;
+      }
+    }
+    &:nth-of-type(odd) td { background-color: color.theme('light', 'bg') }
+    &:nth-of-type(even) td { background-color: darken(color.theme('light', 'bg'), 10%) }
+  }
+}

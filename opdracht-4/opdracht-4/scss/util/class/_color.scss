@@ -1,0 +1,29 @@
+@use '../../config/color';
+
+$types: (
+  'bg': 'background-color',
+  'txt': 'color',
+  'bor': 'border-color'
+);
+
+// Get all colors;
+@each $ctype, $cmap in color.get() {
+
+  $pref: '';
+
+  @if $ctype == 'accent' { $pref: 'a'; }
+  @if $ctype == 'message' { $pref: 'm'; }
+  @if $ctype == 'theme' { $pref: 't'; }
+
+  @each $mname, $mcolor in $cmap {
+    @if type-of($mcolor) == 'color' {
+      @each $propPref, $tprop in $types {
+        .c#{$pref}-#{$propPref}-#{$mname} { #{$tprop}: $mcolor; }
+      }
+    } @else if type-of($mcolor) == 'map' {
+      .c#{$pref}-bg-#{$mname} { background-color: map-get($mcolor, 'bg'); }
+      .c#{$pref}-txt-#{$mname} { color: map-get($mcolor, 'txt'); }
+      .c#{$pref}-bor-#{$mname} { border-color: map-get($mcolor, 'bor'); }
+    }
+  }
+}

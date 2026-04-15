@@ -1,0 +1,46 @@
+@use '../../config/vendor';
+
+@use 'sass:string';
+
+@mixin set( $prop, $val ) {
+  $val: #{$prop}( $val );
+  @include vendor.prefix( transform, $val);
+}
+
+@mixin custom( $val ) {
+  @include vendor.prefix( transform, $val);
+}
+
+@mixin rotate( $deg, $axis: false ) {
+  $rotate: '';
+
+  @if $axis { $rotate: 'rotate'+$axis }
+  @else { $rotate: 'rotate'; }
+
+  @include set( $rotate, $deg );
+}
+
+@mixin rotateX( $deg ) { @include rotate( $deg, 'X' ) }
+@mixin rotateY( $deg ) { @include rotate( $deg, 'Y' ) }
+@mixin rotateZ( $deg ) { @include rotate( $deg, 'Z' ) }
+
+@function xy( $x, $y: false ) {
+  $val: '';
+
+  @if $y { $val: $x, $y }
+  @else { $val: $x }
+
+  @return $val;
+}
+
+@mixin scale( $x, $y: false ) { @include set('scale', xy($x, $y)) }
+@mixin scaleX( $val ) { @include scale($val, 0); }
+@mixin scaleY( $val ) { @include scale(0, $val); }
+
+@mixin translate( $x, $y: false ) { @include set('translate', xy($x, $y)) }
+@mixin translateX( $val ) { @include translate( $val, 0 ) }
+@mixin translateY( $val ) { @include translate( 0, $val ) }
+
+@mixin skew( $x, $y: false ) { @include set(skew, xy($x, $y)) }
+@mixin skewX( $deg ) { @include skew( $deg, 0 ) }
+@mixin skewY( $deg ) { @include skew( 0, $deg ) }

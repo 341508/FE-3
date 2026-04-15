@@ -1,0 +1,55 @@
+$sizes: (
+  'screen': (
+    's': 576px,
+    'm': 768px,
+    'l': 992px,
+    'xl': 1200px,
+    'xxl': 1400px
+  ),
+  'column': (
+    'number': 12
+  ),
+  'font': (
+    'base': 22px,
+    'deviation': 6
+  ),
+  'space': (
+    'size': .5rem,
+    'amount': 10
+  ),
+  'border': (
+    'radius': (
+      's': .25rem,
+      'm': .5rem,
+      'l': 1rem
+    ),
+    'width': (
+      'thin': 1,
+      'light': 2,
+      'thick': 3
+    )
+  )
+);
+
+@function get( $type, $name: false, $key: false ) {
+
+  $sizeMap: map-get($sizes, $type); // Gets level 1 value or map.
+
+  @if $name {
+
+    $sizeVal: map-get($sizeMap, $name); // Gets level 2 value or map.
+
+    @if $key { @return map-get($sizeVal, $key); } // Returns level 3 value.
+    @else { @return $sizeVal; } // Returns level 2 value or map.
+  } @else {  @return $sizeMap }; // Returns level 1 map.
+}
+
+@function font( $name: false ) { @return get('font', $name); }
+
+@function screen( $name: false ) { @return get('screen', $name); }
+
+@function colnum() { @return get('column', 'number'); }
+
+@function space( $name ) { @return get('space', $name); }
+
+@function border( $name, $key: false ) { @return get('border', $name, $key); }

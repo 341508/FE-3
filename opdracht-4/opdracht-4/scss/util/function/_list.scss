@@ -1,0 +1,16 @@
+
+@function implode( $list, $glue: '', $nested: false ) {
+
+  $result: false;
+
+  @for $i from 1 through length($list) {
+    $val: nth($list, $i);
+    @if $val {
+      @if not $result { $result: $val }
+      @else { $result: #{$result}#{$glue}#{$val} }
+    }
+  }
+
+  @return $result;
+
+}

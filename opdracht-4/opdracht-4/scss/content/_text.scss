@@ -1,0 +1,188 @@
+@use '../config/size';
+@use '../config/font';
+@use '../config/color';
+
+@use '../util/mixin/transition';
+@use '../util/mixin/border';
+@use '../util/mixin/shadow';
+
+@use 'sass:color' as c;
+
+html {
+  font-size: size.font('base');
+  scroll-behavior: smooth;
+
+  // Get Max Size (ms) from sizes map;
+  $maxsize: nth(map-values(size.screen()), length(size.screen()));
+
+  @each $size, $screenwidth in size.screen() {
+
+    $htmlfs: round(size.font('base') - (size.font('deviation') - calc($screenwidth / $maxsize) * size.font('deviation')));
+
+    @media screen and (min-width: $screenwidth) {
+      font-size: $htmlfs;
+    }
+  }
+
+  body {
+    font-family: font.family('normal');
+    color: color.theme('dark', 'txt');
+
+    &.dark { color: color.theme('dark', 'txt') }
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  width: 100%;
+  padding: .65em 0;
+  margin: 0;
+  font-family: font.family('title');
+  line-height: 91%;
+  code { line-height: 1.8em; }
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.9rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 1rem; }
+
+hr {
+  width: 100%;
+  margin: 1rem 0;
+  border-style: solid;
+  border-color: color.theme('light','bor');
+
+  &.dark { border-color: color.theme('dark','bor') }
+  &.thin { border-top-width: 1px }
+  &.light { border-top-width: 2px }
+  &.thick { border-top-width: 3px }
+}
+
+p {
+  width: 100%;
+  margin: 0 0 1rem 0;
+  line-height: 1.7rem;
+}
+
+a {
+  @include transition.short(color);
+  color: color.accent(2);
+
+  &:hover { color: color.accent(1) }
+}
+
+ul, ol {
+  padding-left: 1.5rem;
+  margin: .75rem 0;
+  list-style-position: outside;
+
+  li {
+    padding-left: .5rem;
+    margin: .5rem 0;
+
+    &::marker {
+      margin-left: 1rem;
+      font-weight: bold;
+      color: color.accent(1);
+    }
+  }
+}
+
+dl dd { margin: 0 0 .5rem 1.5rem; }
+
+blockquote {
+  position: relative;
+  width: 80%;
+  padding: 1rem 1.5rem!important;
+  margin: 1rem auto;
+  background:
+    linear-gradient(to right, color.accent(1) .2rem, transparent .2rem) 0 100%,
+    linear-gradient(to left, color.accent(1) .2rem, transparent .2rem) 100% 0,
+    linear-gradient(to bottom, color.accent(1) .2rem, transparent .2rem) 100% 0,
+    linear-gradient(to top, color.accent(1) .2rem, transparent .2rem) 0 100%;
+  background-repeat: no-repeat;
+  background-size: 1.5rem 1.5rem;
+  font-family: font.family('title');
+  text-align: center;
+  color: color.theme('light', 'txt');
+
+  &:before,
+  &:after {
+    position: absolute;
+    color: color.accent(1);
+    font-family: boxicons!important;
+    font-size: 1.5rem;
+  }
+
+  &:before {
+    content: "\ee83";
+    top: 0;
+    left: 0;
+  }
+
+  &:after {
+    content: "\ee84";
+    top: auto;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+details {
+  @include border.set();
+  padding: 0!important;
+  margin: 1rem;
+  // summary, p { padding: .5rem 1rem; }
+  summary {
+    padding: .5rem 1rem .5rem .7rem;
+    background-color: color.black(.25);
+  }
+  p {
+    @include border.set($side: 't');
+    padding: .5rem 1rem;
+    margin: 0;
+  }
+}
+
+kbd, code, samp {
+  padding: .3rem .5rem;
+  margin: 0 .5rem;
+}
+
+kbd{
+  position: relative;
+  &:before {
+    @include border.set($radius: 's');
+    @include shadow.box($ver: .2rem, $hor: .1rem);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+}
+
+code, samp { color: color.theme('dark', 'txt') }
+code { background-color: color.theme('dark', 'bg') }
+samp { background-color: lighten(color.accent(1), 5%) }
+
+pre {
+  padding: .5rem .5rem .7rem .5rem!important;
+  background-color: transparentize(color.accent(2), .5);
+}
+
+sup { font-size: 1.3rem }
+
+img { max-width: 100% }
+
+figure {
+  width: fit-content;
+  margin: 1rem 0;
+  figcaption {
+    @include border.set($width: 0 1px 1px 1px);
+  }
+}

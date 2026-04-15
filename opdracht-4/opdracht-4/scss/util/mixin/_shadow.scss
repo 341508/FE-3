@@ -1,0 +1,18 @@
+@mixin box( $hor: 0, $ver: 0, $blur: 0, $dis: 0, $color: rgba( 0, 0, 0, 0.1 ), $inset: false ) {
+  @if $inset {
+    -webkit-box-shadow: inset $hor $ver $blur $dis $color;
+    box-shadow: inset $hor $ver $blur $dis $color;
+  } @else {
+    -webkit-box-shadow: $hor $ver $blur $dis $color;
+    box-shadow: $hor $ver $blur $dis $color;
+  }
+}
+
+@mixin reset() {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+@mixin text( $hor: 0, $ver: 0, $blur: 0, $color: rgba( 0, 0, 0, 0.1 ) ) {
+  text-shadow: $hor $ver $blur $color;
+}

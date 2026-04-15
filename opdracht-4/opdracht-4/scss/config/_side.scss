@@ -1,0 +1,14 @@
+$sides: (
+  't': 'top',
+  'r': 'right',
+  'b': 'bottom',
+  'l': 'left',
+  'y': 'vertical',
+  'x': 'horizontal',
+  '': false
+);
+
+@function get( $pref: false ) {
+  @if $pref { @return map-get($sides, $pref); }
+  @else { @return $sides; }
+}

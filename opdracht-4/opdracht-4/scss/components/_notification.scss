@@ -1,0 +1,21 @@
+@use '../config/color';
+
+@use '../util/mixin/shadow';
+@use '../util/mixin/transition';
+
+.notification {
+  @include shadow.box($ver: .3rem, $blur: .5rem, $color: color.black(5));
+  @include transition.normal(opacity);
+
+  display: none;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: fit-content;
+  margin: 0;
+  opacity: 0;
+
+  &.active { opacity: 1 }
+
+  p:last-of-type { margin-bottom: 0 }
+}

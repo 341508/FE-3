@@ -1,0 +1,7 @@
+@mixin set($count, $fill: true, $gap: true, $rule: true, $width: true) {
+  column-count: $count;
+  @if $fill { column-fill: $fill }
+  @if $gap { column-gap: $gap }
+  @if $rule { column-rule: $rule }
+  @if $width { column-width: $width }
+}

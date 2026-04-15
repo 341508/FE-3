@@ -1,0 +1,24 @@
+{
+    "name": "opdracht6-weerbericht",
+    "version": "1.0.0",
+    "description": "",
+    "main": "script.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "lite-server"
+    },
+    "author": "",
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/341508/FE-3.git"
+    },
+    "bugs": {
+        "url": "https://github.com/341508/FE-3/issues"
+    },
+    "homepage": "https://github.com/341508/FE-3#readme",
+    "devDependencies": {
+        "chart.js": "^4.5.1",
+        "lite-server": "^2.6.1"
+    }
+}

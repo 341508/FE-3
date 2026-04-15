@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Weerbericht v2026</title>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+	</head>
+	<body>
+		<h1>Good weather, Good day</h1>
+
+		<div id="top-section">
+			<div id="current-weather">
+				<img id="current-icon" src="" alt="" />
+				<p id="current-desc"></p>
+				<p id="current-temp"></p>
+				<p id="current-feels"></p>
+				<p id="current-precip"></p>
+
+				<div id="search-container">
+					<input type="text" id="cityInput" placeholder="Utrecht" />
+					<button id="searchBtn"><i class="fa-solid fa-location-dot"></i></button>
+				</div>
+			</div>
+
+			<div id="hourly-weather"></div>
+		</div>
+
+		<div id="weekly-card">
+			<div id="daily-weather"></div>
+			<hr />
+			<canvas id="weekChart"></canvas>
+			<p id="footer-text">Good weather, Good day, weather APP inc &copy; 2026</p>
+		</div>
+
+		<!-- JS: libraries -->
+		<script
+			type="text/javascript"
+			src="node_modules/chart.js/dist/chart.umd.js"
+		></script>
+		<script src="script.js"></script>
+	</body>
+</html>

@@ -1,0 +1,70 @@
+@use '../config/color';
+
+@use '../util/mixin/transition';
+@use '../util/mixin/standard';
+
+.card {
+  @include transition.normal(('background-color', 'color'));
+  @include standard.theme('light');
+
+  // Standard card styling uses a light theme.
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border-radius: .2rem;
+  flex-direction: column;
+  overflow: hidden;
+
+  // These classes can be used to position the content in the card.
+  &.ver-center { justify-content: center; }
+  &.ver-top { justify-content: flex-start; }
+  &.ver-bottom { justify-content: flex-end; }
+  &.hor-center { align-items: center; }
+  &.hor-left { align-items: flex-start; }
+  &.hor-right { align-items: flex-end; }
+
+  // Dark variant for the cards
+  &.dark { @include standard.theme('dark') }
+
+  // Icon variant for the cards.
+  // Uses boxicons
+  &.icon {
+    i {
+      @include transition.normal('color');
+      color: color.theme('light', 'txt');
+      font-size: 8rem;
+    }
+  }
+
+  // Link variant for the cards.
+  // HTML structure: div.card > a
+  &.link {
+    cursor: pointer;
+
+    * {
+      text-decoration: none!important;
+    }
+
+    &:hover {
+      background-color: color.theme('dark', 'bg');
+
+      h2, h3, h4, h5, h6, p {
+        color: color.theme('dark', 'txt');
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  h2, h3, h4, h5, h6, p {
+    padding: .5rem;
+    margin: 0;
+  }
+
+  button {
+    margin: .5rem;
+  }
+}

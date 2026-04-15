@@ -1,0 +1,11 @@
+@use 'sass:map';
+
+$families: (
+  'normal': ('Oxygen', sans-serif),
+  'title': ('Oxygen', sans-serif)
+);
+
+@function family( $name: false ) {
+  @if $name { @return map.get($families, $name); }
+  @else { @return $fonts; }
+}

@@ -1,0 +1,296 @@
+@use '../config/color';
+@use '../config/font';
+@use '../config/size';
+
+@use '../util/mixin/transform';
+@use '../util/mixin/transition';
+@use '../util/mixin/animation';
+
+nav {
+  // Standard nav styling.
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+
+  // Pseudo-element after used for background.
+  // Solves the issue of submenu's apparently scrolling through other elementsize.
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: color.theme('light', 'bg');
+    border-bottom: 1px solid color.theme('light', 'bor');
+    z-index: -1;
+  }
+
+  // Changes position to sticky.
+  &.sticky { position: sticky; }
+
+  // Makes it so the menu aligns on the right.
+  // Also translates to mobile.
+  &.right,
+  &.right div.container { flex-direction: row-reverse; }
+  &.right div.menu-icon,
+  &.mob-icon-right div.menu-icon { right: 0; }
+
+  // Makes it so the menu aligns in the center on the horizontal axisize.
+  // Also translates to mobile.
+  &.center,
+  &.center div.container {
+    flex-direction: column;
+    justify-content: center;
+  }
+  &.center div.container div.menu { justify-content: center; }
+
+  // Makes it so the menu aligns in the center on the vertical axisize.
+  &.v-center,
+  &.v-center div.container { align-items: center; }
+
+  // Dark variant of the nav.
+  &.dark {
+    color: color.theme('dark', 'txt');
+
+    &:after {
+      background-color: color.theme('dark', 'bg');
+      border-color: color.theme('dark', 'bor');
+    }
+
+    a { color: color.theme('dark', 'txt'); }
+
+    div.menu ul > li > ul > li > a { background-color: color.theme('dark', 'bg'); }
+
+    div.menu-icon {
+      div.inner,
+      div.inner:before,
+      div.inner:after {
+        background-color: color.theme('dark', 'txt');
+      }
+    }
+  }
+
+  // Standard link menu styling.
+  a {
+    text-decoration: none;
+    color: color.theme('light', 'txt');
+    &:hover {
+      color: color.accent(3);
+    }
+  }
+
+  // Menu icon styling.
+  // Like hamburger.css it's styling with an animation in mind.
+  div.menu-icon {
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 3rem;
+    height: 100%;
+    padding: .7rem;
+    align-items: center;
+    cursor: pointer;
+
+    // Hamburger icon generated with 1 element and 2 pseudo-elements
+    div.inner,
+    div.inner:before,
+    div.inner:after {
+      width: 100%;
+      height: .1rem;
+      background-color: color.theme('light', 'txt');
+      border-radius: .05rem;
+    }
+
+    div.inner {
+      @include transition.normal('background-color');
+      position: relative;
+    }
+
+    div.inner:before,
+    div.inner:after {
+      @include transition.normal('transform');
+      content: '';
+      position: absolute;
+      left: 0;
+    }
+
+    div.inner:before { top: -.4rem; }
+    div.inner:after { bottom: -.4rem; }
+
+    // If menu-icon is active, the pseudo-elements will turn.
+    // Inner element will "dissapear".
+    &.active {
+      div.inner { background-color: transparent; }
+
+      div.inner:before {
+        @include transform.rotate(225deg);
+        top: 0;
+      }
+
+      div.inner:after {
+        @include transform.rotate(-225deg);
+        bottom: 0;
+      }
+    }
+  }
+
+  div.container {
+    max-height: 100%;
+  }
+
+  // Standard logo element.
+  div.logo {
+    @include animation.set('rotate');
+    height: 3rem;
+    max-height: 100%;
+    padding: .25rem 1rem;
+    font-family: font.family('title');
+    font-size: 1.5rem;
+
+    &.medium { height: 5rem; }
+    &.large { height: 7rem; }
+
+    img, svg {
+      height: 100%;
+    }
+  }
+
+  // Standard menu stucture styling.
+  div.menu {
+    @include transition.normal('normal');
+    display: flex;
+    position: relative;
+    z-index: 1;
+
+    ul {
+      display: flex;
+      margin: 0;
+      padding: 0;
+      flex-direction: row;
+      list-style-type: none;
+
+      > li {
+        position: relative;
+        margin: 0;
+        padding: 0;
+
+        // Onhover show submenu.
+        &:hover > ul { display: flex; }
+
+        > a {
+          display: block;
+          padding: .75rem 1rem;
+        }
+
+        // Submenu styling.
+        > ul {
+          position: absolute;
+          display: none;
+          flex-direction: column;
+          align-items: stretch;
+
+          > li {
+            width: 100%;
+
+            a {
+              background-color: color.theme('light', 'bg');
+              white-space: nowrap;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Foreach that generates mobile menu's based on screensize.
+  // For example: mob-m will turn into a mobile menu on a screen smaller than 768px.
+  @each $size, $screenwidth in size.screen() {
+
+    // Media query per classize.
+    @media screen and (max-width: $screenwidth) {
+
+      // Class name generated.
+      // CSS: nav.mob-s, nav.mob-m etcolor.
+      &.mob-#{$size} {
+        height: 3rem;
+        flex-direction: column;
+
+        // Mobile menu positioning.
+        div.container,
+        div.menu ul {
+          flex-direction: column;
+
+          li ul {
+            position: relative;
+            display: flex;
+
+            li a {
+              padding: .3rem 1rem;
+              background-color: transparent;
+              color: lighten(color.theme('light', 'txt'), 20%);
+              font-size: .8rem;
+            }
+          }
+        }
+
+        // Dark variant colorsize.
+        &.dark {
+          div.menu {
+            background-color: color.theme('dark', 'bg');
+
+            ul li ul li a { color: darken(color.theme('dark', 'txt'), 20%); }
+          }
+        }
+
+        div.menu-icon { display: flex; }
+
+        // Logo will be centered on mobile.
+        div.logo { align-self: center; }
+
+        // Right variant styling also available on mobile
+        &.right div.menu {
+          left: auto;
+          right: 0;
+
+          &.mob-side { @include transform.translateX(100%); }
+        }
+
+        // Mobile menu structure styling.
+        div.menu {
+          position: absolute;
+          top: 3rem;
+          left: 0;
+          max-height: calc(100vh - 3rem);
+          background-color: color.theme('light', 'bg');
+          overflow: auto;
+          z-index: -1;
+
+          // Mobile full variant. Will take up the whole screen.
+          &.mob-full {
+            width: 100%;
+            height: calc(100vh - 3rem);
+          }
+
+          // Will slide out from the side.
+          // If class right is active, it will slide from the right side.
+          &.mob-side {
+            @include transform.translateX(-100%);
+
+            &.active { @include transform.translateX(0); }
+          }
+
+          // Will slide out from the top.
+          &.mob-top {
+            @include transform.translateY(calc(-100% - 3rem));
+
+            &.active { @include transform.translateY(0); }
+          }
+        }
+      }
+    }
+  }
+}

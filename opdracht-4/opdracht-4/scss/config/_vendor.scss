@@ -1,0 +1,11 @@
+$vendors: (
+  '-moz-',
+  '-webkit-',
+  ''
+);
+
+@mixin prefix($prop, $val) {
+  @each $prefix in $vendors {
+    #{$prefix}#{$prop}: $val;
+  }
+}

@@ -1,0 +1,45 @@
+@use '../../config/size';
+@use '../../config/side';
+@use '../../config/color';
+
+@use '../mixin/border';
+
+// Foreach based on the different border widths. (config/size);
+@each $name, $width in size.border('width') {
+
+  // Foreach based on different sides. (config/side)
+  @each $sidePref, $side in side.get() {
+
+    // Generates base selector.
+    $nameClass: b#{$sidePref}-#{$name};
+    $intClass: b#{$sidePref}-#{$width};
+
+    // Wildcard selector setting border width and default style (Solid util/mixin/border@32)
+    [class^="#{$nameClass}"], [class*=" #{$nameClass}"],
+    [class^="#{$intClass}"], [class*=" #{$intClass}"] {
+      @include border.set($width, $sidePref);
+    }
+
+    // Setting border-color, light variant.
+    .#{$nameClass}-l, .#{$intClass}-light {
+      @include border.set($color: color.theme('light', 'bor'));
+    }
+
+    // Setting border-color, dark variant.
+    .#{$nameClass}-d, .#{$intClass}-dark {
+      @include border.set($color: color.theme('dark', 'bor'));
+    }
+
+    // Setting border-color, all the color variants. (config/color)
+    @each $name, $color in color.accent() {
+
+      .#{$nameClass}-#{$name}, .#{$intClass}-#{$name} {
+        @include border.set($color: $color);
+      }
+    }
+  }
+}
+
+@each $name, $size in size.border('radius') {
+  .b-rad-#{$name} { border-radius: $size };
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Opdracht 4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/jemxfw.all.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+          <div id="phone-container" class="col-s-12 col-l-6">
+            <div class="phone">
+              <div id="conversation">
+                <span id="p1-talks" class="talks">&bull;&bull;&bull;</span>
+                <span id="p2-talks" class="talks">&bull;&bull;&bull;</span>
+              </div>
+            </div>
+          </div>
+          <div id="input" class="col-s-12 col-l-6 ac-flex-start">
+            <label for="message1">
+              Person 1 says:
+              <input type="text" id="p1-message" person="p1" name="message1" />
+            </label>
+            <label for="message2">
+              Person 2 says:
+              <input type="text" id="p2-message" person="p2" name="message2" />
+            </label>
+          </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
+
+  </body>
+</html>

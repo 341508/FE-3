@@ -1,0 +1,20 @@
+body {
+  background: #383838;
+  color: #fff;
+  font-family: sans-serif;
+  padding: 2rem;
+}
+
+h1 {
+  color: #fff;
+  padding-bottom: 0.5rem;
+}
+
+.card {
+  background: #040404;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-top: 1rem;
+}
+
+/*# sourceMappingURL=style.css.map */

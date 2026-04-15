@@ -1,0 +1,85 @@
+@use '../../config/size';
+
+@use '../mixin/flex';
+
+@use 'sass:math';
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+// For this grid system to work properly box-sizing needs to be set to border-box
+body * {
+  box-sizing: border-box;
+}
+
+// Standard container classize.
+// Breakpoints from map are used.
+.container {
+  width: 100%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+
+  @each $size, $screenwidth in size.screen() {
+    @media screen and (min-width: $screenwidth) {
+      $div: math.round(math.div(($screenwidth * .95), 10));
+      width: $div * 10;
+    }
+  }
+}
+
+// Standard container-fluid
+.container-fluid {
+  width: 100%;
+}
+
+// Row styling
+// Standpard flexbox styling.
+.row,
+[class^='col-'],
+[class*=' col-'],
+.col {
+  @include flex.set();
+  width: 100%;
+
+  &.dp-block { display: block; }
+}
+
+// Base column styling.
+[class^='col-'],
+[class*=' col-'],
+.col {
+  width: 100%;
+  padding: .5rem;
+}
+
+// For-loop to generate the 12 column grid.
+@for $i from size.colnum() through 1 {
+  // Width will be calculated as follows: 100% / (12 / i) where i is the iterator in the for-loop.
+  // Calc function is used, because it's more accurate.
+  $div: math.div(size.colnum(), $i);
+  $width: calc(100% / $div);
+
+  // Base column class is generated.
+  %col-#{$i},
+  .col-#{$i} {
+    width: $width;
+  }
+
+  // For each loop with the sizes map.
+  // size is name for the screensize
+  // screenwidth is the width of the screen in pixels
+  @each $size, $screenWidth in size.screen() {
+
+    // Column class with screensize name and column number.
+    %col-#{$size}-#{$i},
+    .col-#{$size}-#{$i} {
+        @media screen and (min-width: $screenWidth) { width: $width; }
+    }
+  }
+
+}

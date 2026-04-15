@@ -1,0 +1,47 @@
+@use '../config/color';
+
+@use '../util/mixin/border';
+
+div#top {
+  main {
+
+  }
+}
+
+section {
+  div > header,
+  div > article,
+  div > footer {
+    margin: 1rem 0;
+    > * {
+      padding: 0 1rem;
+    }
+  }
+  header {
+
+  }
+  article {
+    @include border.set($radius: 's');
+    header {
+      @include border.set($side: 'b');
+      background-color: color.black(1);
+    }
+    > div, address, footer {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    table {
+      margin-right: 1rem;
+      margin-left: 1rem;
+    }
+    footer {
+      @include border.set($side: 't');
+      background-color: color.black(.25);
+      > *:last-child { margin-bottom: 0 }
+    }
+
+  }
+  footer {
+
+  }
+}

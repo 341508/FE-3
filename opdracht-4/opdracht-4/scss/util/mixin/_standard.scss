@@ -1,0 +1,33 @@
+@use '../../config/color';
+
+@mixin set( $bg: false, $border: false, $text: false, $title: false) {
+  @if $bg { background-color: $bg }
+  @if $border { border-color: $border }
+  @if $text { color: $text }
+
+  @if $title {
+    h1, h2, h3, h4, h5, h6 { color: $title }
+  }
+}
+
+@mixin color($color, $bg: true, $border: true, $text: true, $title: true) {
+  @if $bg { $bg: lighten($color, 25%) }
+  @if $border { $border: $color }
+  @if $text { $color: darken($color, 40%) }
+  @if $title { $title: darken($color, 20%) }
+
+  @include set($bg, $border, $text, $title);
+}
+
+@mixin theme($name, $bg: true, $border: true, $text: true, $title: true) {
+  @if $bg { $bg: color.theme($name, 'bg') }
+  @if $border { $border: color.theme($name, 'bor') }
+  @if $text { $text: color.theme($name, 'txt') }
+
+  @if $title {
+    @if $name == 'light'{ $title: lighten($text, 20%) }
+    @else if $name == 'dark'{ $title: darken($text, 20%) }
+  }
+
+  @include set($bg, $border, $text, $title);
+}

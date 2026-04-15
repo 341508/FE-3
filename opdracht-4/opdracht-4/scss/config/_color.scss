@@ -1,0 +1,54 @@
+@use 'sass:map';
+@use 'sass:math';
+
+$colors: (
+  'accent': (
+    1: #01286D,
+    2: #05B5F2,
+    3: #F2B305,
+    4: #F27405,
+    5: #A62103
+  ),
+  'message': (
+    'success': #1FCC56,
+    'warning': #FFD147,
+    'error': #EB693B
+  ),
+  'theme': (
+    'light': (
+      'bg': #ededed,
+      'txt': #333,
+      'bor': #ddd
+    ),
+    'dark': (
+      'bg': #333,
+      'txt': #ededed,
+      'bor': #ededed
+    )
+  )
+);
+
+@function get( $type: false, $name: false, $key: false ) {
+
+  @if $type {
+    $colorMap: map-get($colors, $type); // Gets level 1 value or map.
+
+    @if $name {
+
+      $colorVal: map-get($colorMap, $name); // Gets level 2 value or map.
+
+      @if $key { @return map-get($colorVal, $key); } // Returns level 3 value.
+      @else { @return $colorVal; } // Returns level 2 value or map.
+    } @else {  @return $colorMap }; // Returns level 1 map.
+  } @else {
+    @return $colors;
+  }
+}
+
+@function accent($num: false) { @return get('accent', $num); }
+@function message($name: false) { @return get('message', $name); }
+@function theme($name, $key) { @return get('theme', $name, $key); }
+
+@function white($alpha) { @return rgba(255, 255, 255, math.div($alpha, 10)); }
+@function black($alpha) { @return rgba(0, 0, 0, math.div($alpha, 10)); }
+@function grey($percent) { @return darken(#fff, $percent); }

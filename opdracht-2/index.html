@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="nl" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Opdracht 2: Counter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/grid.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <div class="row">
+        <div class="col-12">
+          <section class="counter-card">
+            <h1>Counter</h1>
+            <p class="intro">Klik op een knop om de teller te veranderen.</p>
+
+            <div class="counter-panel">
+              <p class="counter-label">Huidige stand</p>
+              <div id="counter" class="neutral" aria-live="polite">0</div>
+              <p id="counter-state" class="counter-state neutral">Status: neutraal</p>
+            </div>
+
+            <div class="button-grid" id="buttons">
+              <button type="button" class="subtract" value="10">-10</button>
+              <button type="button" class="subtract" value="1">-1</button>
+              <button type="button" class="add" value="1">+1</button>
+              <button type="button" class="add" value="10">+10</button>
+            </div>
+
+            <button type="button" id="reset-button" class="reset-button">Reset</button>
+          </section>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

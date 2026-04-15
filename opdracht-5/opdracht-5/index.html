@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cijfergrafiek</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="node_modules/chart.js/dist/chart.umd.js"></script>
+</head>
+<body>
+    <main class="analytics-panel">
+        <div class="analytics-header">
+            <div>
+                <p class="analytics-kicker">Analytics</p>
+                <h1>Cijfers per periode</h1>
+                <p class="analytics-note">Beweeg over de grafiek om per periode alle cijfers snel te bekijken.</p>
+            </div>
+            <span class="passing-badge">Voldoende vanaf 5,5</span>
+        </div>
+
+        <section id="analytics-summary" class="analytics-summary" aria-label="Samenvatting van de cijfers"></section>
+
+        <div class="chart-wrapper">
+            <canvas id="grade-graph">Your browser is older than my grandfather</canvas>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

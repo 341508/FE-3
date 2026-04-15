@@ -1,0 +1,18 @@
+
+// Spacer map with the types and sides.
+$spacer: (
+  'type': (
+    'p': 'padding',
+    'm': 'margin'
+  )
+);
+
+// Function for returning spacer maps and their values.
+@function get( $name, $pref: false ) {
+  $spaceMap: map-get($spacer, $name);
+  @if $pref { @return map-get($spaceMap, $pref); }
+  @else { @return $spaceMap };
+}
+
+// Extented function of get function for returning types.
+@function type( $pref: false ) { @return get('type', $pref); }

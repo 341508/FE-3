@@ -1,0 +1,32 @@
+@use '../config/color';
+
+@use '../util/mixin/standard';
+
+.alert {
+  @include standard.color(color.accent(1));
+
+  // standard alert styling
+  // Is also the same as the c-1 class with the colors
+  width: 100%;
+  padding: .5rem;
+  margin: .5rem 0;
+  border-radius: .2rem;
+
+  h1, h2, h3, h4, h5, h6 { margin: 0; }
+
+  // Foreach with all the colors map. (color.accent());
+  // Generates different classes for the alerts.
+  @each $name, $color in color.accent() {
+
+    &.c-#{$name} { @include standard.color(color.accent($name)); }
+
+  }
+
+  // Light and dark theme for the alerts
+  &.light {
+    @include standard.theme('light');
+  }
+  &.dark {
+    @include standard.theme('dark');
+  }
+}

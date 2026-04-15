@@ -1,0 +1,11 @@
+@mixin set( $name, $dur: .5s, $timing: ease-out, $delay: false, $direction: false, $iterator: false, $fill: false, $state: false ) {
+  animation-name: $name;
+  animation-duration: $dur;
+  animation-timing-function: $timing;
+
+  @if $delay { animation-delay: $delay }
+  @if $direction { animation-direction: $direction }
+  @if $iterator { animation-iteration-count: $iterator }
+  @if $fill { animation-fill-mode: $fill }
+  @if $state { animation-play-state: $state; }
+}
