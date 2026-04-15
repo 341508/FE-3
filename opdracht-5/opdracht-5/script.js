@@ -1,5 +1,8 @@
 "use strict";
 
+// Dit script bouwt de cijfergrafiek van opdracht 5 op.
+// De gegevens worden gebruikt voor de samenvattingskaarten, de lijngrafiek en de voldoende/ onvoldoende zone.
+
 // Selecteer het canvas van de grafiek en het element waarin de samenvatting komt.
 const chartElement = document.getElementById("grade-graph");
 const summaryElement = document.getElementById("analytics-summary");

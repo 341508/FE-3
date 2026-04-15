@@ -1,5 +1,8 @@
 "use strict";
 
+// Dit script haalt weergegevens op en zet die op de pagina.
+// Het toont het huidige weer, de komende uren, de komende dagen en een temperatuurgrafiek.
+
 // Start de app pas als de hele pagina klaar is met laden.
 window.onload = function() {
     startApp();

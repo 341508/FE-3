@@ -1,9 +1,12 @@
+// Dit script vult het profiel dynamisch aan.
+// De profielfoto wordt ingesteld en de opleidingen worden vanuit een array in de HTML gezet.
+
 // Selecteer de profielfoto en de lijst waarin de opleidingen komen te staan.
 const photoEl = document.querySelector("img.profile-photo");
 const educationListEl = document.querySelector(".education ul");
 
 // Zet de profielfoto via JavaScript, zodat de pagina deze bron direct gebruikt.
-photoEl.src = "img/pf.jpg";
+photoEl.src = "img/profile-picture.png";
 
 // Bewaar de opleidingen in een array met objecten, zodat de inhoud makkelijk uit te breiden is.
 const educationArr = [

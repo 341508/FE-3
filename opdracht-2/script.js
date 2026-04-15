@@ -1,3 +1,6 @@
+// Dit script regelt de teller van opdracht 2.
+// De knoppen passen de waarde aan, de resetknop zet alles terug en de status verandert mee.
+
 // Selecteer alle knoppen en de onderdelen van de teller die bijgewerkt moeten worden.
 const buttons = document.querySelectorAll("#buttons button");
 const counterEl = document.querySelector("#counter");

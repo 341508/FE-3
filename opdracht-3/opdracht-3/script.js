@@ -1,3 +1,6 @@
+// Dit script simuleert een eenvoudig chatgesprek tussen twee personen.
+// Tijdens het typen verschijnt een indicator en bij het versturen wordt een nieuw bericht toegevoegd.
+
 // Laat de typ-indicator van de gekozen persoon zien of verberg hem weer.
 function show_talking(person, text) {
   let talkElement = document.getElementById(person + "-talks");

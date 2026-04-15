@@ -1,3 +1,6 @@
+// Dit script opent en sluit het modalscherm.
+// Eerst wordt het modalscherm zichtbaar gemaakt, daarna zorgt een CSS-klasse voor de animatie.
+
 // Selecteer het modalscherm en de knop die het modalscherm opent.
 const modalElement = document.querySelector("div#modal");
 const openButton = document.querySelector("button#open-modal");
