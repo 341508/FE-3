@@ -634,6 +634,7 @@ label .checkbox-group label input[type="checkbox"]:after {
   border-radius: 0.1rem;
 }
 html,
+/* Achtergrond van de pagina rond de modalopdracht */
 body {
   width: 100%;
   min-height: 100vh;
@@ -1807,14 +1808,17 @@ body {
   background: -webkit-radial-gradient(circle, #444 0%, #111 100%);
   background: radial-gradient(circle, #444 0%, #111 100%);
 }
+/* Hoofdcontainer vult de volledige hoogte van het scherm */
 main.container {
   height: 100vh;
 }
 
+/* Zorgt dat de knop verticaal gecentreerd kan worden */
 main.container div.row {
   height: 100%;
 }
 
+/* Verborgen overlay die over de hele pagina heen valt */
 div#modal {
   transition: opacity 1s ease 0.2s;
   display: none;
@@ -1830,10 +1834,12 @@ div#modal {
   align-items: center;
 }
 
+/* Klasse die de overlay zichtbaar laat worden */
 div#modal.visible {
   opacity: 1;
 }
 
+/* Inhoudsblok van de modal */
 div#modal div#modal-content {
   max-width: 100%;
   max-height: 100%;
@@ -1845,6 +1851,7 @@ div#modal div#modal-content {
   border-radius: 0.5rem;
 }
 
+/* Sluitknop rechtsboven in de overlay */
 div#modal div#close-modal {
   position: absolute;
   top: 1rem;
@@ -1853,12 +1860,14 @@ div#modal div#close-modal {
   cursor: pointer;
 }
 
+/* Icoon van de sluitknop */
 div#modal div#close-modal i {
   transition: opacity 0.5s ease 0s;
   font-size: 2rem;
   opacity: 0.5;
 }
 
+/* Hover-effect voor het sluiticoon */
 div#modal div#close-modal:hover i {
   opacity: 1;
 }

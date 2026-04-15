@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 	<head>
+		<!-- Basisinstellingen, titel en gekoppelde stylesheets -->
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Weerbericht v2026</title>
@@ -8,8 +9,10 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 	</head>
 	<body>
+		<!-- Paginaheading boven de weerinformatie -->
 		<h1>Good weather, Good day</h1>
 
+		<!-- Bovenste deel met huidig weer links en de urenvoorspelling rechts -->
 		<div id="top-section">
 			<div id="current-weather">
 				<img id="current-icon" src="" alt="" />
@@ -24,9 +27,11 @@
 				</div>
 			</div>
 
+			<!-- Overzicht van de komende uren -->
 			<div id="hourly-weather"></div>
 		</div>
 
+		<!-- Onderste kaart met weekoverzicht, grafiek en footer -->
 		<div id="weekly-card">
 			<div id="daily-weather"></div>
 			<hr />
@@ -34,11 +39,12 @@
 			<p id="footer-text">Good weather, Good day, weather APP inc &copy; 2026</p>
 		</div>
 
-		<!-- JS: libraries -->
+		<!-- Externe bibliotheek voor het tekenen van de grafiek -->
 		<script
 			type="text/javascript"
 			src="node_modules/chart.js/dist/chart.umd.js"
 		></script>
+		<!-- Eigen script voor het ophalen en tonen van het weer -->
 		<script src="script.js"></script>
 	</body>
 </html>

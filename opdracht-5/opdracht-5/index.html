@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
+    <!-- Basisinstellingen, stylesheet en Chart.js-bibliotheek -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cijfergrafiek</title>
@@ -8,6 +9,7 @@
     <script type="text/javascript" src="node_modules/chart.js/dist/chart.umd.js"></script>
 </head>
 <body>
+    <!-- Hoofdblok met titel, samenvatting en grafiek -->
     <main class="analytics-panel">
         <div class="analytics-header">
             <div>
@@ -18,12 +20,15 @@
             <span class="passing-badge">Voldoende vanaf 5,5</span>
         </div>
 
+        <!-- Leeg startvak dat via JavaScript gevuld wordt met samenvattingskaarten -->
         <section id="analytics-summary" class="analytics-summary" aria-label="Samenvatting van de cijfers"></section>
 
+        <!-- Canvas waarop Chart.js de grafiek tekent -->
         <div class="chart-wrapper">
             <canvas id="grade-graph">Your browser is older than my grandfather</canvas>
         </div>
     </main>
+    <!-- Script dat de samenvatting en grafiek opbouwt -->
     <script src="script.js"></script>
 </body>
 </html>

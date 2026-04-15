@@ -1,9 +1,11 @@
+/* Reset voor marge, padding en boxmodel */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+/* Kleur- en fontvariabelen voor de pagina */
 :root {
   --color-bg-top: #c97fd4;
   --color-bg-mid: #7b9fd4;
@@ -14,6 +16,7 @@
   --font-family-base: 'Segoe UI', sans-serif;
 }
 
+/* Algemene pagina-opmaak en gekleurde achtergrond */
 body {
   font-family: var(--font-family-base);
   background: linear-gradient(160deg, var(--color-bg-top) 0%, var(--color-bg-mid) 50%, var(--color-bg-bot) 100%);
@@ -22,7 +25,7 @@ body {
   padding: 2.5rem 2rem;
 }
 
-/* titel */
+/* Hoofdtitel bovenaan de pagina */
 h1 {
   text-align: center;
   font-size: 1.8rem;
@@ -30,6 +33,7 @@ h1 {
   margin-bottom: 2rem;
 }
 
+/* Bovenste layout met huidig weer en urenoverzicht naast elkaar */
 #top-section {
   display: flex;
   justify-content: center;
@@ -41,6 +45,7 @@ h1 {
   margin-right: auto;
 }
 
+/* Linkerblok met de actuele weersituatie */
 #current-weather {
   display: flex;
   flex-direction: column;
@@ -49,6 +54,7 @@ h1 {
   min-width: 200px;
 }
 
+/* Weericoon van het huidige weer */
 #current-icon {
   width: 70px;
   height: 70px;
@@ -58,12 +64,14 @@ h1 {
   padding: 6px;
 }
 
+/* Omschrijving van het huidige weer */
 #current-desc {
   font-weight: bold;
   font-size: 1rem;
   margin-bottom: 0.2rem;
 }
 
+/* Kleine regels met temperatuur, gevoelstemperatuur en neerslag */
 #current-temp,
 #current-feels,
 #current-precip {
@@ -71,6 +79,7 @@ h1 {
   margin: 0.1rem 0;
 }
 
+/* Zoekveld voor het invoeren van een stad */
 #search-container {
   display: flex;
   align-items: center;
@@ -81,6 +90,7 @@ h1 {
   width: 100%;
 }
 
+/* Invoerveld voor de stadsnaam */
 #cityInput {
   flex: 1;
   padding: 0.5rem 1rem;
@@ -93,11 +103,13 @@ h1 {
   width: 150px;
 }
 
+/* Placeholder-opmaak van het invoerveld */
 #cityInput::placeholder {
   color: var(--color-white);
   font-weight: bold;
 }
 
+/* Zoekknop met locatie-icoon */
 #searchBtn {
   padding: 0.5rem 1rem;
   background: transparent;
@@ -107,6 +119,7 @@ h1 {
   cursor: pointer;
 }
 
+/* Kolom met de uurvoorspellingen */
 #hourly-weather {
   display: flex;
   flex-direction: column;
@@ -114,6 +127,7 @@ h1 {
   min-width: 280px;
 }
 
+/* Eén rij in het urenoverzicht */
 .hourly-row {
   display: grid;
   grid-template-columns: 70px 70px 70px 36px;
@@ -123,11 +137,13 @@ h1 {
   padding: 0.1rem 0;
 }
 
+/* Icoon binnen een urenrij */
 .hourly-row img {
   width: 28px;
   height: 28px;
 }
 
+/* Witte kaart voor de weekvoorspelling en grafiek */
 #weekly-card {
   background: var(--color-white);
   border-radius: 16px;
@@ -137,6 +153,7 @@ h1 {
   color: var(--color-dark);
 }
 
+/* Rij met dagkaarten */
 #daily-weather {
   display: flex;
   justify-content: space-between;
@@ -144,6 +161,7 @@ h1 {
   margin-bottom: 1rem;
 }
 
+/* Opmaak van één dagkaart */
 .day-card {
   display: flex;
   flex-direction: column;
@@ -152,38 +170,45 @@ h1 {
   text-align: center;
 }
 
+/* Naam van de dag */
 .day-name {
   font-size: 1rem;
   font-weight: bold;
   color: var(--color-dark);
 }
 
+/* Weericoon in de dagkaart is hier verborgen */
 .day-card img {
   display: none;
 }
 
+/* Hoogste temperatuur van de dag */
 .day-max {
   font-size: 1rem;
   font-weight: bold;
   color: #222;
 }
 
+/* Laagste temperatuur van de dag */
 .day-min {
   font-size: 1rem;
   color: #666;
 }
 
+/* Scheidingslijn tussen het weekoverzicht en de grafiek */
 #weekly-card hr {
   border: none;
   border-top: 2px solid #4a90d4;
   margin: 1rem 0 1rem;
 }
 
+/* Canvas van de weekgrafiek */
 #weekChart {
   width: 100% !important;
   max-height: 340px;
 }
 
+/* Kleine footertekst onderaan de kaart */
 #footer-text {
   font-size: 1rem;
   color: var(--color-muted);

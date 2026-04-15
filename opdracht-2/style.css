@@ -1,7 +1,9 @@
+/* Basislettergrootte voor de hele pagina */
 html {
   font-size: 18px;
 }
 
+/* Centrale uitlijning en algemene pagina-opmaak */
 body {
   margin: 0;
   min-height: 100vh;
@@ -14,10 +16,12 @@ body {
   color: #222;
 }
 
+/* Breedte van de inhoudscontainer */
 .container {
   width: min(100%, 28rem);
 }
 
+/* Hoofdkaart van de counter */
 .counter-card {
   padding: 1.5rem;
   border: 1px solid #cfcfcf;
@@ -25,16 +29,19 @@ body {
   background-color: #ffffff;
 }
 
+/* Hoofdtitel van de pagina */
 h1 {
   margin: 0 0 0.75rem;
   font-size: 1.8rem;
 }
 
+/* Korte uitleg onder de titel */
 .intro {
   margin: 0 0 1rem;
   color: #555;
 }
 
+/* Vak met de huidige tellerwaarde */
 .counter-panel {
   margin-bottom: 1rem;
   padding: 1rem;
@@ -43,16 +50,19 @@ h1 {
   background-color: #fafafa;
 }
 
+/* Tekstlabel boven de teller */
 .counter-label {
   margin: 0 0 0.5rem;
   color: #555;
 }
 
+/* Extra statusregel onder de teller */
 .counter-state {
   margin: 0.5rem 0 0;
   font-size: 0.9rem;
 }
 
+/* Grote weergave van de tellerstand */
 #counter {
   font-family: Arial, sans-serif;
   font-size: 2.6rem;
@@ -60,6 +70,7 @@ h1 {
   text-align: center;
 }
 
+/* Neutrale, positieve en negatieve kleurtoestanden van de teller */
 #counter.neutral {
   color: #333;
 }
@@ -78,6 +89,7 @@ h1 {
   color: #444;
 }
 
+/* Raster voor de plus- en minknoppen */
 .button-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -85,6 +97,7 @@ h1 {
   margin-bottom: 0.75rem;
 }
 
+/* Algemene knopopmaak */
 button {
   padding: 0.8rem 1rem;
   border: 1px solid #bcbcbc;
@@ -94,20 +107,24 @@ button {
   cursor: pointer;
 }
 
+/* Knoppen die een waarde van de teller aftrekken */
 button.subtract {
   background-color: #c96a6a;
 }
 
+/* Knoppen die een waarde bij de teller optellen */
 button.add {
   background-color: #5e936a;
 }
 
+/* Losse resetknop onder de teller */
 .reset-button {
   width: 100%;
   background-color: #e9e9e9;
   color: #222;
 }
 
+/* Eenvoudige mobiele aanpassing voor smallere schermen */
 @media (max-width: 600px) {
   .counter-card {
     padding: 1.25rem;

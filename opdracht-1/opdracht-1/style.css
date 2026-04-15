@@ -1,9 +1,11 @@
+/* Reset zodat alle elementen dezelfde basis hebben */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* Algemene pagina-opmaak en achtergrond */
 body {
   background: linear-gradient(135deg, #a1e2f9 0%, #e0bdf6 100%);
   display: flex;
@@ -12,6 +14,7 @@ body {
   padding: 100px;
 }
 
+/* Hoofdcontainer met zijbalk en inhoud naast elkaar */
 .container {
   display: flex;
   max-width: 900px;
@@ -20,6 +23,7 @@ body {
   border-radius: 8px;
 }
 
+/* Zijbalk met foto en contactinformatie */
 .sidebar {
   background: #f0f0f0;
   padding: 40px;
@@ -27,6 +31,7 @@ body {
   text-align: center;
 }
 
+/* Profielfoto rond maken en visueel laten opvallen */
 .profile-photo img {
   width: 150px;
   height: 150px;
@@ -37,43 +42,51 @@ body {
   margin-bottom: 20px;
 }
 
+/* Naam in de zijbalk */
 .sidebar h2 {
   font-size: 24px;
   margin-bottom: 30px;
 }
 
+/* Contactblok met extra gegevens */
 .contact-info {
   text-align: center;
   font-size: 14px;
   color: #333;
 }
 
+/* Label van elk contactveld */
 .contact-info strong {
   display: block;
   margin-top: 15px;
 }
 
+/* Waarde van elk contactveld */
 .contact-info span {
   color: #777;
 }
 
+/* Hoofdinformatie rechts van de zijbalk */
 .content {
   background: #f8f8f8;
   padding: 40px;
   width: 600px;
 }
 
+/* Kopjes van de verschillende onderdelen */
 .section-title {
   color: #00adef;
   font-size: 22px;
   margin-bottom: 15px;
 }
 
+/* Lopende tekst in het profielblok */
 .profile-section p {
   color: #888;
   line-height: 1.6;
 }
 
+/* Scheidingslijn tussen profiel en opleidingen */
 hr {
   border: 0;
   height: 2px;
@@ -81,20 +94,24 @@ hr {
   margin: 30px 0;
 }
 
+/* Opmaak van de opleidingenlijst */
 .education ul {
   list-style-type: disc;
   padding-left: 20px;
 }
 
+/* Afstand tussen de opleidingsitems */
 .education li {
   margin-bottom: 25px;
 }
 
+/* Titel van een opleiding */
 .education h4 {
   font-size: 18px;
   color: #000;
 }
 
+/* Looptijd van de opleiding */
 .education .duration {
   font-style: italic;
   color: #777;
@@ -102,6 +119,7 @@ hr {
   font-weight: bold;
 }
 
+/* Naam van de school */
 .education .school {
   color: #999;
   font-size: 13px;
@@ -110,6 +128,7 @@ hr {
   margin-bottom: 10px;
 }
 
+/* Beschrijving van de opleiding */
 .education p {
   color: #888;
   line-height: 1.5;

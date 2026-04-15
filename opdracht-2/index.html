@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="nl" dir="ltr">
   <head>
+    <!-- Meta-informatie en gekoppelde stylesheets -->
     <meta charset="utf-8" />
     <title>Opdracht 2: Counter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,16 +12,19 @@
     <main class="container">
       <div class="row">
         <div class="col-12">
+          <!-- Kaart met de teller en de bedieningsknoppen -->
           <section class="counter-card">
             <h1>Counter</h1>
             <p class="intro">Klik op een knop om de teller te veranderen.</p>
 
+            <!-- Blok waarin de huidige tellerstand en status zichtbaar zijn -->
             <div class="counter-panel">
               <p class="counter-label">Huidige stand</p>
               <div id="counter" class="neutral" aria-live="polite">0</div>
               <p id="counter-state" class="counter-state neutral">Status: neutraal</p>
             </div>
 
+            <!-- Knoppen om de teller op te hogen of te verlagen -->
             <div class="button-grid" id="buttons">
               <button type="button" class="subtract" value="10">-10</button>
               <button type="button" class="subtract" value="1">-1</button>
@@ -33,6 +37,7 @@
         </div>
       </div>
     </main>
+    <!-- Script dat de tellerlogica afhandelt -->
     <script src="script.js"></script>
   </body>
 </html>

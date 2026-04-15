@@ -11,16 +11,16 @@ photoEl.src = "img/profile-picture.png";
 // Bewaar de opleidingen in een array met objecten, zodat de inhoud makkelijk uit te breiden is.
 const educationArr = [
   {
-    title: "ICT MBO Niv 4",
-    duration: "sept. 2023 - jun. 2027",
-    school: "MBO Utrecht",
-    description: "In expedita minus ex ullam, suscipit animi ratione...",
+    title: "ICT-opleiding",
+    duration: "aug. 2023 - mei 2027",
+    school: "Santa Monica College",
+    description: "Gericht op programmeren, webdevelopment en het bouwen van praktische digitale projecten.",
   },
   {
-    title: "Middelbaar onderwijs",
-    duration: "sept. 2019 - jul. 2023",
-    school: "Gelobe College",
-    description: "In expedita minus ex ullam, suscipit animi ratione...",
+    title: "Middelbare school",
+    duration: "aug. 2019 - jun. 2023",
+    school: "Lincoln High School",
+    description: "Algemene middelbare opleiding met vakken zoals wiskunde, Engels en informatica.",
   },
 ];
 
